@@ -96,7 +96,6 @@ describe('Participants module', () => {
     cy.get('.css-u4p24i').should('not.exist');
     cy.wait(1000);
     //Driver
-    //cy.get('[data-testid="DirectionsCarIcon"]').click();
     cy.get('.MuiCardHeader-root').should('contain.text', 'Driver');
     cy.get('[name="driverLicenseNumber"]').type('ABC23456');
     cy.get('[name="yearsOfDrivingExperience"]').type('5');
