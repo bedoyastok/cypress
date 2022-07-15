@@ -9,7 +9,7 @@ describe('Participants module', () => {
     cy.login_confirmata(email, password);
   });
 
-  it('Validation', function () {
+  it('Validation, creation, edition and delete o participants', function () {
     cy.url().should('eq', `${frontendUrl}/dashboard`);
     cy.wait(2000);
 
@@ -38,21 +38,26 @@ describe('Participants module', () => {
         cy.get('h5').should('contain.text', 'About the Owner');
         cy.get(`[href="/loanApplications/${ID}/tasks/participants"]`).should('contain.text', 'Participants');
       }); //close $autoID
-  });
 
-  it('edit participant and add 80%', function () {
-    cy.viewport(1920, 1080);
+    //Edit participant and add 80%//
     cy.get('[data-testid="EditIcon"]').last().click();
     cy.get('.MuiCardHeader-root').should('contain.text', 'Personal Information');
     cy.get('[name="nameSuffix"]').clear().type('Edit');
     cy.get('form').submit();
+    cy.get('.css-u4p24i').should('not.exist');
+    cy.wait(1000)
+
     cy.get('svg[data-testid="PersonAddIcon"]').first().click();
     cy.get('span').should('contain.text', 'Ownership');
     cy.get('[name="ownerPercentageOwnershipAmount"]').clear().type('80');
     cy.get('form').submit();
     cy.get('.css-u4p24i').should('not.exist');
+    cy.wait(1000)
+
     cy.get('nav > ol > li').contains('Participants').click();
     cy.get('h5').should('contain.text', 'About the Owner');
+
+
   });
 
   /*it('Create participant driver', () => {
