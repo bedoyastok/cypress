@@ -45,22 +45,17 @@ describe('Participants module', () => {
     cy.get('[name="nameSuffix"]').clear().type('Edit');
     cy.get('form').submit();
     cy.get('.css-u4p24i').should('not.exist');
-    cy.wait(1000)
-
-    cy.get('svg[data-testid="PersonAddIcon"]').first().click();
+    cy.wait(1000);
+    //cy.get('svg[data-testid="PersonAddIcon"]').first().click();
     cy.get('span').should('contain.text', 'Ownership');
     cy.get('[name="ownerPercentageOwnershipAmount"]').clear().type('80');
     cy.get('form').submit();
     cy.get('.css-u4p24i').should('not.exist');
-    cy.wait(1000)
-
+    cy.wait(1000);
     cy.get('nav > ol > li').contains('Participants').click();
     cy.get('h5').should('contain.text', 'About the Owner');
 
-
-  });
-
-  /*it('Create participant driver', () => {
+    //Create participant driver//
     cy.viewport(1920, 1080);
     cy.get('[data-testid="AddIcon"]').click();
     cy.get('h5').should('contain.text', 'Create Participant');
@@ -79,14 +74,11 @@ describe('Participants module', () => {
     cy.get('[name="zipCode"]').type('78475');
     cy.get('[name="creditMemoNotes"]').type('testing credi memo notes');
     cy.get('[name="notes"]').type('testing notes');
-    cy.get('form').submit()
+    cy.get('form').submit();
     cy.get('.css-u4p24i').should('not.exist');
-    cy.wait(3000);
-
-    //cy.get('[data-testid="PersonAddIcon"]').first().click();
-    cy.get('.MuiCardHeader-root').should('contain.text', 'Ownership');
-
-    cy.get('[data-testid="PeopleIcon"]').click();
+    cy.wait(1000);
+    //FPS
+    //cy.get('[data-testid="PeopleIcon"]').click();
     cy.get('.MuiCardHeader-root').should('contain.text', 'PFS');
     cy.get('[name="creditCardPaymentsPerYear"]').clear().type('20');
     cy.get('[name="utilitiesPerYear"]').type('120');
@@ -101,20 +93,20 @@ describe('Participants module', () => {
     cy.get('[name="yearsOfTruckingExperience"]').type('5');
     cy.get('[name="currentlyEmployedAsTruckDriver"]').type('5');
     cy.get('[name="otherExpensesPerYear"]').type('100');
-    cy.get('form').submit()
+    cy.get('form').submit();
     cy.get('.css-u4p24i').should('not.exist');
     cy.wait(1000);
-
-    cy.get('[data-testid="DirectionsCarIcon"]').click();
+    //Driver
+    //cy.get('[data-testid="DirectionsCarIcon"]').click();
     cy.get('.MuiCardHeader-root').should('contain.text', 'Driver');
     cy.get('[name="driverLicenseNumber"]').type('ABC23456');
     cy.get('[name="yearsOfDrivingExperience"]').type('5');
     cy.get('input[type="file"]').attachFile('test.png');
     cy.get('[type="button"]').contains('Upload').click();
-    cy.get('form').submit()
+    cy.get('form').submit();
     cy.get('.css-u4p24i').should('not.exist');
     cy.wait(1000);
-
+    //Experian credit report
     cy.get('[data-testid="EditIcon"]').click();
     cy.get('.MuiCardHeader-root').should('contain.text', 'Experian Credit Report');
     cy.get('[name="ssn"]').type('019905680');
@@ -126,15 +118,15 @@ describe('Participants module', () => {
     cy.get('[type="submit"]').contains('Save').click();
     cy.get('.css-u4p24i').should('not.exist');
     cy.wait(1000);
-
+    //Income sources
     cy.get('[data-testid="PaidIcon"]').click();
     cy.get('.MuiCardContent-root').should('contain.text', 'Income Sources');
     cy.get('[data-testid="AddIcon"]').click();
     cy.get('label').contains('Label').type('Income');
     cy.get('label').contains('Amount').type('1000');
     cy.get('label').contains('Notes').type('Cypress');
-    cy.get('[data-testid="SaveIcon"]').click().type('{esc}');*/
-  /*
+    cy.get('[data-testid="SaveIcon"]').click().type('{esc}');
+    //Employment history
     cy.get('[data-testid="PersonAddIcon"]').last().click();
     cy.get('.MuiCardContent-root').should('contain.text', 'Employment History');
     cy.get('[data-testid="AddIcon"]').click();
@@ -142,14 +134,17 @@ describe('Participants module', () => {
     cy.get('[name="employmentRole"]').type('Driver');
     cy.get('[type="tel"]').first().type('01/01/2000');
     cy.get('[type="tel"]').last().type('01/01/2020');
-    cy.get('form').submit()
+    cy.get('form').submit();
     cy.wait(2000);
     cy.get('[type="button"]').contains('Close').click();
     cy.get('nav > ol > li').contains('Participants').click();
     cy.get('h5').should('contain.text', 'About the Owner');
   });
+});
 
-  /*
+/*
+   
+
   cy.get('h5').should('contain.text', 'Create Participant');
   cy.get('.MuiCardHeader-root').should('contain.text', 'Personal Information');
   cy.get('[name="firstName"]').type('DriverDaniel');
@@ -248,6 +243,7 @@ describe('Participants module', () => {
   cy.get('nav > ol > li').contains('Participants').click();
   cy.get('.MuiTableFooter-root > .MuiTableRow-root > :nth-child(1)').should('contain.text', '100% Total');
 
+
   //cy.get(':nth-child(3) > :nth-child(7) > button.MuiButtonBase-root').click()//delete
-  //cy.get(':nth-child(2) > :nth-child(7) > button.MuiButtonBase-root').click()//delete*/
-});
+  //cy.get(':nth-child(2) > :nth-child(7) > button.MuiButtonBase-root').click()//delete
+*/
