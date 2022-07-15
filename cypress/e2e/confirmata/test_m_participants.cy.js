@@ -78,7 +78,6 @@ describe('Participants module', () => {
     cy.get('.css-u4p24i').should('not.exist');
     cy.wait(1000);
     //FPS
-    //cy.get('[data-testid="PeopleIcon"]').click();
     cy.get('.MuiCardHeader-root').should('contain.text', 'PFS');
     cy.get('[name="creditCardPaymentsPerYear"]').clear().type('20');
     cy.get('[name="utilitiesPerYear"]').type('120');
